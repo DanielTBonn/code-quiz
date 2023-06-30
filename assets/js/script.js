@@ -10,14 +10,25 @@ btnClick.addEventListener("click", () => {
 
 const quizSheet = {
   question: "This is the first question",
-  answers: {
-    answer1: {answer: "This is the first answer", value: true},
-    answer2: {answer: "This is the second answer", value: false},
-    answer3: {answer: "This is the third answer", value: false},
-    answer4: {answer: "This is the fourth answer", value: false},
-  }
+  answers: [
+     {answer: "This is the first answer", value: true},
+     {answer: "This is the second answer", value: false},
+     {answer: "This is the third answer", value: false},
+     {answer: "This is the fourth answer", value: false}
+    ]
 }
 console.log(quizSheet.answers.answer1);
+
+function displayQuestion(question) {
+  for (let i = 1; i < 5; i++) {
+    var btnnum = ".btn"
+    btnnum += i;
+    var changeText = document.querySelector(btnnum);
+    changeText.textContent = quizSheet.answers[i - 1].answer;
+  }
+}
+
+displayQuestion("hi");
 
 function countdown() {
   var timeInterval = setInterval(function () {
