@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".btn");
-var timeLeft = 5;
+var timeLeft = 75;
 
 // Decrements timer (will use for wrong answers)
 btnClick.addEventListener("click", () => {
