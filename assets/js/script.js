@@ -20,17 +20,17 @@ const quizSheet = {
 console.log(quizSheet.answers.answer1);
 
 function countdown() {
-    var timeInterval = setInterval(function () {
+  var timeInterval = setInterval(function () {
 
-      timerEl.textContent = timeLeft + ' seconds remanining';
-      timeLeft--;
-      
-      if (timeLeft <= 0) {
-        // End Quiz Here
-        timerEl.textContent = 0 + ' seconds remanining';
-        clearInterval(timeInterval);
-      }
-    }, 1000);
-  }
+    timerEl.textContent = timeLeft + ' seconds remanining';
+    timeLeft--;
+    
+    if (timeLeft <= 0) {
+      // End Quiz Here
+      timerEl.textContent = 0 + ' seconds remanining';
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+}
 
 countdown();
