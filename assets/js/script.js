@@ -32,13 +32,24 @@ const quizSheet = {
 function displayQuestion(question) {
   var changeQuestion = document.querySelector(".question-content");
   changeQuestion.textContent = quizSheet.question1.questionText;
-  for (let i = 1; i < 5; i++) {
+  
+    for (let i = 1; i < 5; i++) {
     var btnnum = ".btn"
     btnnum += i;
     var changeText = document.querySelector(btnnum);
     changeText.textContent = quizSheet.question1.answers[i - 1].answer;
   }
 }
+
+function questionLoop() {
+  for (const question in quizSheet) {
+    console.log(question);
+    console.log(typeof question);
+    console.log(quizSheet[question].questionText);
+  }
+}
+
+questionLoop();
 
 displayQuestion("hi");
 
