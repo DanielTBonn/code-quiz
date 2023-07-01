@@ -9,22 +9,34 @@ btnClick.addEventListener("click", () => {
 });
 
 const quizSheet = {
-  question: "This is the first question",
-  answers: [
-     {answer: "This is the first answer", value: true},
-     {answer: "This is the second answer", value: false},
-     {answer: "This is the third answer", value: false},
-     {answer: "This is the fourth answer", value: false}
-    ]
+  question1: {
+    questionText: "This is the first question",
+    answers: [
+      {answer: "This is the first answer", value: true},
+      {answer: "This is the second answer", value: false},
+      {answer: "This is the third answer", value: false},
+      {answer: "This is the fourth answer", value: false}
+      ]
+  },
+  question2: {
+    questionText: "This is the second question",
+    answers: [
+      {answer: "This answer is untrue", value: false},
+      {answer: "This is true answer", value: true},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false}
+      ]
+  }
 }
-console.log(quizSheet.answers.answer1);
 
 function displayQuestion(question) {
+  var changeQuestion = document.querySelector(".question-content");
+  changeQuestion.textContent = quizSheet.question1.questionText;
   for (let i = 1; i < 5; i++) {
     var btnnum = ".btn"
     btnnum += i;
     var changeText = document.querySelector(btnnum);
-    changeText.textContent = quizSheet.answers[i - 1].answer;
+    changeText.textContent = quizSheet.question1.answers[i - 1].answer;
   }
 }
 
