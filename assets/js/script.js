@@ -58,6 +58,26 @@ questionLoop();
 
 displayQuestion("hi");
 
+if (!localStorage.getItem("bgcolor")) {
+  populateStorage();
+} else {
+  setStyles();
+}
+
+function populateStorage() {
+  localStorage.setItem("btn1", document.querySelector(".btn1").innerHTML);
+
+  setStyles();
+}
+
+console.log(localStorage);
+
+function setStyles() {
+  const btnInnerHtml = localStorage.getItem("btn1");
+}
+
+
+
 function countdown() {
   var timeInterval = setInterval(function () {
 
