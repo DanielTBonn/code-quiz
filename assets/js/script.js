@@ -77,6 +77,11 @@ btnClick.addEventListener("click", (event) => {
       console.log("END QUIZ HERE")
       return;
     }
+
+    if (i >= quiz.length - 1) {
+      window.location.href = "./results.html"
+    }
+
   }
 });
 
