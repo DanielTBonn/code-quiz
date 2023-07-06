@@ -23,6 +23,33 @@ const quizSheet = {
       {answer: "This answer is untrue", value: false},
       {answer: "This answer is untrue", value: false}
     ]
+  },
+  question3: {
+    questionText: "This is the third question",
+    answers: [
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This is true answer", value: true}
+    ]
+  },
+  question4: {
+    questionText: "This is the fourth question",
+    answers: [
+      {answer: "This is true answer", value: true},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false}
+    ]
+  },
+  question5: {
+    questionText: "This is the fifth question",
+    answers: [
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This answer is untrue", value: false},
+      {answer: "This is true answer", value: true}
+    ]
   }
 }
 
@@ -31,29 +58,27 @@ for (item in quizSheet) {
 } 
 
 // Decrements timer (will use for wrong answers)
-// Need to fix error where only the first .btn class is chosen
 btnClick.addEventListener("click", (event) => {
   const isButton = event.target.nodeName === "BUTTON";
-  console.log(quiz[i].answers[0].value);
+  var index = Number(event.target.getAttribute("data-number"));
+  var correct = quiz[i].answers[index].value;
+
   if (isButton) {
-    console.log("Truuuuuue");
-    
-    if (null) {
+    console.log(correct);
+    if (!correct) {
       timeLeft = timeLeft - 5;
     }
 
     if (timeLeft > 0 && i < quiz.length - 1){
       i++;
       displayQuestion(quiz[i]);
+    } else {
+      // END QUIZ
+      console.log("END QUIZ HERE")
+      return;
     }
   }
 });
-
-for (item in quizSheet) {
-  console.log(item);
-  console.log(typeof item);
-  console.log(quizSheet[item].questionText);
-}
 
 function displayQuestion(question) {
   var changeQuestion = document.querySelector(".question-content");
@@ -64,19 +89,9 @@ function displayQuestion(question) {
     btnnum += i;
     var changeText = document.querySelector(btnnum);
     changeText.textContent = question.answers[i - 1].answer;
-    changeText.setAttribute("data-number") === (i - 1);
+    changeText.setAttribute("data-number", i - 1);
   }
 }
-
-function questionLoop() {
-  
-  for (const question in quizSheet) {
-    console.log(question);
-    console.log(typeof question);
-    console.log(quizSheet[question].questionText);
-  }
-}
-
 
 function countdown() {
 
