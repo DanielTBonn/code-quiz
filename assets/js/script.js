@@ -107,6 +107,7 @@ function countdown() {
 
     if (timeLeft < 0) {
       // End Quiz Here
+      timerEl.textContent = 0 + ' seconds remanining';
       clearInterval(timeInterval);
       window.location.href = "./results.html"
     }
