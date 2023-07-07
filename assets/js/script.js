@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
-var timeLeft = 75;
+var timeLeft = 5;
 
 var i = 0;
 var quiz = [];
@@ -105,10 +105,10 @@ function countdown() {
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
 
-    if (timeLeft <= 0) {
+    if (timeLeft < 0) {
       // End Quiz Here
-      timerEl.textContent = 0 + ' seconds remanining';
       clearInterval(timeInterval);
+      window.location.href = "./results.html"
     }
 
   }, 1000);
