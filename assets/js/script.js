@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
-var timeLeft = 5;
+var timeLeft = 80;
 
 var i = 0;
 var quiz = [];
@@ -73,15 +73,12 @@ btnClick.addEventListener("click", (event) => {
       i++;
       displayQuestion(quiz[i]);
     } else {
-      // END QUIZ
-      console.log("END QUIZ HERE")
-      return;
+      i++;
     }
 
-    if (i >= quiz.length - 1) {
+    if (i > quiz.length - 1) {
       window.location.href = "./results.html"
     }
-
   }
 });
 
@@ -99,9 +96,7 @@ function displayQuestion(question) {
 }
 
 function countdown() {
-
   var timeInterval = setInterval(function () {
-    
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
 
@@ -111,7 +106,6 @@ function countdown() {
       clearInterval(timeInterval);
       window.location.href = "./results.html"
     }
-
   }, 1000);
 }
 
