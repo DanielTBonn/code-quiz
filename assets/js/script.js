@@ -71,6 +71,8 @@ btnClick.addEventListener("click", (event) => {
       currentScore = score(currentScore, correct);
     }
     console.log(currentScore);
+    console.log(calculateScore(currentScore,quiz.length));
+
 
     if (timeLeft > 0 && i < quiz.length - 1){
       i++;
@@ -80,6 +82,7 @@ btnClick.addEventListener("click", (event) => {
     }
 
     if (i > quiz.length - 1) {
+      createLocalStorage();
       window.location.href = "./results.html"
     }
   }
@@ -102,9 +105,10 @@ function countdown() {
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
-
-    if (timeLeft < 0) {
+    if ((timeLeft < 0) || (i > quiz.length - 1)) {
       // End Quiz Here
+      createLocalStorage();
+      console.log(localStorage);
       timerEl.textContent = 0 + ' seconds remanining';
       clearInterval(timeInterval);
       window.location.href = "./results.html"
@@ -118,25 +122,32 @@ function score(currentScore, correct) {
   }
 }
 
+function calculateScore(currentScore, quizLength) {
+  return Math.floor((currentScore / quizLength) * 100);
+}
+
 countdown();
 displayQuestion(quiz[0]);
 
 
-
 // example that will later turn into the scores for the user
-// if (!localStorage.getItem("bgcolor")) {
-//   populateStorage();
-// } else {
-//   setStyles();
-// }
+function createLocalStorage() {
+  if (!localStorage.getItem("score")) {
+    populateStorage();
+  } else {
+    // localStorage.clear("score");
+    populateStorage();
+    // setStyles();
+  }
+}
 
-// function populateStorage() {
-//   localStorage.setItem("btn1", document.querySelector(".btn1").innerHTML);
+function populateStorage() {
+  localStorage.setItem("score", calculateScore(currentScore, quiz.length));
 
-//   setStyles();
-// }
+  // setStyles();
+}
 
-// console.log(localStorage);
+console.log(localStorage);
 
 // function setStyles() {
 //   const btnInnerHtml = localStorage.getItem("btn1");
