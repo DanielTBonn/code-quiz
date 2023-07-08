@@ -1,6 +1,7 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
 var timeLeft = 80;
+var currentScore = 0;
 
 var i = 0;
 var quiz = [];
@@ -62,12 +63,14 @@ btnClick.addEventListener("click", (event) => {
   const isButton = event.target.nodeName === "BUTTON";
   var index = Number(event.target.getAttribute("data-number"));
   var correct = quiz[i].answers[index].value;
-
   if (isButton) {
     console.log(correct);
     if (!correct) {
       timeLeft = timeLeft - 5;
+    } else {
+      currentScore = score(currentScore, correct);
     }
+    console.log(currentScore);
 
     if (timeLeft > 0 && i < quiz.length - 1){
       i++;
@@ -107,6 +110,12 @@ function countdown() {
       window.location.href = "./results.html"
     }
   }, 1000);
+}
+
+function score(currentScore, correct) {
+  if (correct) {
+    return currentScore + 1;
+  }
 }
 
 countdown();
