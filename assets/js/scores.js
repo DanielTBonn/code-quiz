@@ -1,5 +1,7 @@
 var initials = localStorage.getItem("initials");
 var scores = localStorage.getItem("score");
+var ulEl = document.querySelector("#history");
+
 
 console.log(initials, scores);
 
@@ -17,4 +19,8 @@ console.log(items);
 
 localStorage.setItem("item", JSON.stringify(items));
 console.log(localStorage.getItem("item"));
+
+var listEl = document.createElement("li");
+listEl.textContent = items[0][0] + " - " + items[0][1];
+ulEl.append(listEl);
 
