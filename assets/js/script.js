@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
-var timeLeft = 80;
+var timeLeft = 20;
 var currentScore = 0;
 
 var i = 0;
@@ -66,7 +66,7 @@ btnClick.addEventListener("click", (event) => {
   if (isButton) {
     console.log(correct);
     if (!correct) {
-      timeLeft = timeLeft - 5;
+      timeLeft = timeLeft - 15;
     } else {
       currentScore = score(currentScore, correct);
     }
