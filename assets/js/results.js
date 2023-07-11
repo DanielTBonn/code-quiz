@@ -12,6 +12,7 @@ function handleFormSubmit(event) {
     console.log(typeof initialsSubmit);
     if (initialsSubmit === '' || initialsSubmit.length > 3) {
         console.log("nothing in string");
+        alert('Please enter your initials (up to 3 characters).', 'danger')
     } else {
         window.location.href = "./scores.html";
     }
@@ -29,11 +30,11 @@ function alert(message, type) {
   alertPlaceholder.append(wrapper)
 }
 
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', function () {
-    alert('Please enter your initials (up to 3 characters).', 'danger')
-  })
-}
+// if (alertTrigger) {
+//   alertTrigger.addEventListener('click', function () {
+//     alert('Please enter your initials (up to 3 characters).', 'danger')
+//   })
+// }
 // End of copied code
 
 console.log(initialsForm);
