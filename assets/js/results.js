@@ -9,7 +9,12 @@ resultSection.append(scoreEl);
 function handleFormSubmit(event) {
     var initialsSubmit = document.querySelector("#initials-submit").value;
     localStorage.setItem("initials", initialsSubmit);
-    console.log(localStorage.getItem('initials'));
+    if (localStorage.getItem('initials') === '') {
+        console.log("nothing in string");
+    } else {
+        window.location.href = "./scores.html";
+    }
+    event.preventDefault();
 }
 
 console.log(initialsForm);
