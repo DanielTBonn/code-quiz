@@ -10,25 +10,21 @@ function getStorage() {
     var items = [];
 
     if (localStorage.items) {
-        console.log("its there!");
         items = JSON.parse(localStorage.items);
-    } else {
-        console.log(false);
-    }
-
+    } 
     return items;
 }
 
 
 function addStorage(items, intials, scores) {
-    if (initials === null || scores === null) {
+    if (initials === 'null' || scores === 'null') {
         return;
     }
 
     items.push([initials, scores]);
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("initials", null);
-    localStorage.setItem("scores", null);
+    localStorage.setItem("score", null);
 }
 
 
@@ -39,6 +35,7 @@ function createScores(items) {
         ulEl.append(listEl);
     }
 }
+
 
 items = getStorage();
 addStorage(items, initials, scores);
