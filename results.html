@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Results</title>
 </head>
 <body>
-    <h1>
-        You have finished the quiz!
-    </h1>
-    <button class="ref"><a href="./scores.html">See scores</a></button>
-    <button class="ref"><a href="./quiz.html">Back to quiz?</a></button>
+    <section class="result">
+        <h1>
+            You have finished the quiz!
+        </h1>
+        <button class="ref"><a href="./scores.html">See scores</a></button>
+        <button class="ref"><a href="./quiz.html">Back to quiz?</a></button>
+    </section>
+    <section class="form">
+        <form id="initials-form">
+            <input type="text" id="initials-submit" placeholder="Enter your initials.">
+            <button class="btn btn-info">Add Item</button>
+        </form>
+    </section>
+    <script src="./assets/js/results.js"></script>
 </body>
 </html>
