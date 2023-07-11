@@ -7,8 +7,8 @@ console.log(initials, scores);
 console.log(localStorage.getItem("items"));
 
 function getStorage() { 
-    
     var items = [];
+
     if (localStorage.items) {
         console.log("its there!");
         items = JSON.parse(localStorage.items);
@@ -27,6 +27,8 @@ function addStorage(items, intials, scores) {
 
     items.push([initials, scores]);
     localStorage.setItem("items", JSON.stringify(items));
+    localStorage.setItem("initials", null);
+    localStorage.setItem("scores", null);
 }
 
 
@@ -59,6 +61,8 @@ createBtn.addEventListener('click', () => {
     localStorage.clear();
     console.log(localStorage);
 })
+
+
 
 
 
