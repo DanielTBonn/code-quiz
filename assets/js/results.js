@@ -11,6 +11,12 @@ function handleFormSubmit(event) {
     var initialsSubmit = document.querySelector("#initials-submit").value;
     localStorage.setItem("initials", initialsSubmit);
     console.log(typeof initialsSubmit);
+    
+    var alertEl = document.querySelector(".alert");
+    if (alertEl) {
+      alertEl.remove();
+    }
+
     if (initialsSubmit === '' || initialsSubmit.length > 3) {
         alert('Please enter your initials (up to 3 characters).', 'danger')
     } else {
