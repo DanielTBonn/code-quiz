@@ -32,6 +32,7 @@ function createScores(items) {
     for (let i = 0; i < items.length; i++) {
         var listEl = document.createElement("li");
         listEl.textContent = items[i][0] + " - " + items[i][1];
+        listEl.setAttribute("class", "list-group-item");
         ulEl.append(listEl);
     }
 }
