@@ -102,9 +102,9 @@ function countdown() {
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
+    
     if ((timeLeft < 0) || (i > quiz.length - 1)) {
       createLocalStorage();
-      console.log(localStorage);
       timerEl.textContent = 0 + ' seconds remanining';
       clearInterval(timeInterval);
       window.location.href = "./results.html"

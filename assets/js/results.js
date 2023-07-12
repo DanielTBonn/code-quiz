@@ -1,4 +1,3 @@
-console.log(window.localStorage);
 var resultSection = document.querySelector(".result");
 var initialsForm = document.querySelector("#initials-form");
 var scoreEl = document.createElement('h2');
@@ -36,5 +35,4 @@ function alert(message, type) {
 }
 // End of copied code
 
-console.log(initialsForm);
 initialsForm.addEventListener('submit', handleFormSubmit);
