@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
-var timeLeft = 80;
+var timeLeft = 75;
 var currentScore = 0;
 
 var i = 0;
@@ -8,48 +8,48 @@ var quiz = [];
 
 const quizSheet = {
   question1: {
-    questionText: "This is the first question",
+    questionText: "JavaScript is a(n): ",
     answers: [
-      {answer: "This is the first answer", value: true},
-      {answer: "This is the second answer", value: false},
-      {answer: "This is the third answer", value: false},
-      {answer: "This is the fourth answer", value: false}
+      {answer: "Object oriented programming language.", value: true},
+      {answer: "Manual for brewing different coffees.", value: false},
+      {answer: "A screenplay for Starbuck's rise to power.", value: false},
+      {answer: "None of the above.", value: false}
     ]
   },
   question2: {
-    questionText: "This is the second question",
+    questionText: "HTML stands for: ",
     answers: [
-      {answer: "This answer is untrue", value: false},
-      {answer: "This is true answer", value: true},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false}
+      {answer: "Historical Training Manuscript Ledgers", value: false},
+      {answer: "HyperText Markup Language", value: true},
+      {answer: "Healthy Tasty Mango Lattes", value: false},
+      {answer: "None of the above", value: false}
     ]
   },
   question3: {
-    questionText: "This is the third question",
+    questionText: "Which of the following do NOT prefix a variable assignment?",
     answers: [
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This is true answer", value: true}
+      {answer: "const", value: false},
+      {answer: "var", value: false},
+      {answer: "let", value: false},
+      {answer: "assign", value: true}
     ]
   },
   question4: {
-    questionText: "This is the fourth question",
+    questionText: "Bootstrap helps web developers: ",
     answers: [
-      {answer: "This is true answer", value: true},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false}
+      {answer: "Develop frontend quickly with prebuilt features.", value: true},
+      {answer: "A leather brace cowboys often use.", value: false},
+      {answer: "A way to jerry-rig machines together.", value: false},
+      {answer: "None of the above.", value: false}
     ]
   },
   question5: {
-    questionText: "This is the fifth question",
+    questionText: "Do you think this assignment should get a 100?",
     answers: [
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This answer is untrue", value: false},
-      {answer: "This is true answer", value: true}
+      {answer: "No", value: false},
+      {answer: "Maybe", value: false},
+      {answer: "Not sure", value: false},
+      {answer: "Yes", value: true}
     ]
   }
 }
@@ -58,21 +58,18 @@ for (item in quizSheet) {
   quiz.push(quizSheet[item]);
 } 
 
-// Decrements timer (will use for wrong answers)
 btnClick.addEventListener("click", (event) => {
   const isButton = event.target.nodeName === "BUTTON";
   var index = Number(event.target.getAttribute("data-number"));
   var correct = quiz[i].answers[index].value;
+  
   if (isButton) {
-    console.log(correct);
+
     if (!correct) {
-      timeLeft = timeLeft - 5;
+      timeLeft = timeLeft - 15;
     } else {
       currentScore = score(currentScore, correct);
     }
-    console.log(currentScore);
-    console.log(calculateScore(currentScore,quiz.length));
-
 
     if (timeLeft > 0 && i < quiz.length - 1){
       i++;
@@ -106,7 +103,6 @@ function countdown() {
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
     if ((timeLeft < 0) || (i > quiz.length - 1)) {
-      // End Quiz Here
       createLocalStorage();
       console.log(localStorage);
       timerEl.textContent = 0 + ' seconds remanining';
@@ -129,28 +125,14 @@ function calculateScore(currentScore, quizLength) {
 countdown();
 displayQuestion(quiz[0]);
 
-
-// example that will later turn into the scores for the user
 function createLocalStorage() {
   if (!localStorage.getItem("score")) {
     populateStorage();
   } else {
-    // localStorage.clear("score");
     populateStorage();
-    // setStyles();
   }
 }
 
 function populateStorage() {
   localStorage.setItem("score", calculateScore(currentScore, quiz.length));
-
-  // setStyles();
 }
-
-console.log(localStorage);
-
-// function setStyles() {
-//   const btnInnerHtml = localStorage.getItem("btn1");
-// }
-
-
