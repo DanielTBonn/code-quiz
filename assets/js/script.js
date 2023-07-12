@@ -1,6 +1,6 @@
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
-var timeLeft = 20;
+var timeLeft = 75;
 var currentScore = 0;
 
 var i = 0;
@@ -58,21 +58,18 @@ for (item in quizSheet) {
   quiz.push(quizSheet[item]);
 } 
 
-// Decrements timer (will use for wrong answers)
 btnClick.addEventListener("click", (event) => {
   const isButton = event.target.nodeName === "BUTTON";
   var index = Number(event.target.getAttribute("data-number"));
   var correct = quiz[i].answers[index].value;
+  
   if (isButton) {
-    console.log(correct);
+
     if (!correct) {
       timeLeft = timeLeft - 15;
     } else {
       currentScore = score(currentScore, correct);
     }
-    console.log(currentScore);
-    console.log(calculateScore(currentScore,quiz.length));
-
 
     if (timeLeft > 0 && i < quiz.length - 1){
       i++;
@@ -106,12 +103,11 @@ function countdown() {
     timerEl.textContent = timeLeft + ' seconds remanining';
     timeLeft--;
     if ((timeLeft < 0) || (i > quiz.length - 1)) {
-      // End Quiz Here
       createLocalStorage();
       console.log(localStorage);
       timerEl.textContent = 0 + ' seconds remanining';
       clearInterval(timeInterval);
-      // window.location.href = "./results.html"
+      window.location.href = "./results.html"
     }
   }, 1000);
 }
@@ -129,8 +125,6 @@ function calculateScore(currentScore, quizLength) {
 countdown();
 displayQuestion(quiz[0]);
 
-
-// example that will later turn into the scores for the user
 function createLocalStorage() {
   if (!localStorage.getItem("score")) {
     populateStorage();
@@ -141,14 +135,4 @@ function createLocalStorage() {
 
 function populateStorage() {
   localStorage.setItem("score", calculateScore(currentScore, quiz.length));
-
-  // setStyles();
 }
-
-console.log(localStorage);
-
-// function setStyles() {
-//   const btnInnerHtml = localStorage.getItem("btn1");
-// }
-
-
