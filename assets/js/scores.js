@@ -56,7 +56,4 @@ clearBtn.addEventListener('click', () => {
     window.location.href = "./index.html";
 })
 
-console.log(typeof items[0][1]);
-bblSort(items);
-console.log("hmm")
 
