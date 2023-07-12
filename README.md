@@ -17,4 +17,5 @@ Website Link: https://danieltbonn.github.io/code-quiz/scores.html
 Borrowed code for alerts straight and nav from the bootstrap website.
 
 Link 1: https://getbootstrap.com/docs/5.1/components/alerts/
+
 Link 2: https://getbootstrap.com/docs/5.1/components/navbar/
