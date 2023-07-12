@@ -11,12 +11,19 @@ function getStorage() {
     return items;
 }
 
-function addStorage(items, intials, scores) {
+function addStorage(items, initials, scores) {
     if (initials === 'null' || scores === 'null') {
         return;
     }
 
-    items.push([initials, scores]);
+    items.push([scores, initials]);
+    items = bblSort(items);
+    items.reverse();
+
+    if (items.length > 10) {
+        items = items.slice(0,10);
+    }
+
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("initials", null);
     localStorage.setItem("score", null);
@@ -25,10 +32,23 @@ function addStorage(items, intials, scores) {
 function createScores(items) {
     for (let i = 0; i < items.length; i++) {
         var listEl = document.createElement("li");
-        listEl.textContent = items[i][0] + " - " + items[i][1];
+        listEl.textContent = items[i][1] + " - " + items[i][0];
         listEl.setAttribute("class", "list-group-item");
         ulEl.append(listEl);
     }
+}
+
+function bblSort(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < (arr.length - i - 1); j++) {
+            if (Number(arr[j][0]) >= Number(arr[j + 1][0])) {
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+        }
+    }
+    return arr;
 }
 
 items = getStorage();
@@ -39,9 +59,6 @@ var clearBtn = document.querySelector(".local-clear");
 clearBtn.addEventListener('click', () => {
     localStorage.clear();
     window.location.href = "./index.html";
-})
-
-
-
+});
 
 
