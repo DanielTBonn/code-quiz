@@ -19,6 +19,11 @@ function addStorage(items, initials, scores) {
     items.push([scores, initials]);
     items = bblSort(items);
     items.reverse();
+
+    if (items.length > 10) {
+        items = items.slice(0,10);
+    }
+
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("initials", null);
     localStorage.setItem("score", null);
@@ -54,6 +59,6 @@ var clearBtn = document.querySelector(".local-clear");
 clearBtn.addEventListener('click', () => {
     localStorage.clear();
     window.location.href = "./index.html";
-})
+});
 
 
