@@ -6,7 +6,7 @@ In order to gauge the progress of my peers learning how to code, I created a qui
 
 ## Website
 
-[!alttxt](./assets/images/code-quiz-pic.png)
+![Code quiz website](./assets/images/code-quiz-pic.png)
 
 ## Link
 
