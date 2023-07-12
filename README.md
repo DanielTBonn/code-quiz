@@ -11,6 +11,8 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Website
 
+[!alttxt](./assets/images/code-quiz-pic.png)
+
 ## Link
 
 ## Credits
