@@ -11,7 +11,6 @@ function getStorage() {
     return items;
 }
 
-
 function addStorage(items, intials, scores) {
     if (initials === 'null' || scores === 'null') {
         return;
@@ -22,7 +21,6 @@ function addStorage(items, intials, scores) {
     localStorage.setItem("initials", null);
     localStorage.setItem("score", null);
 }
-
 
 function createScores(items) {
     for (let i = 0; i < items.length; i++) {
