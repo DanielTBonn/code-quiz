@@ -46,18 +46,12 @@ console.log(items);
 console.log(localStorage);
 console.log(localStorage.getItem("items"));
 
-
-
-var bodySelect = document.querySelector("body");
-var createBtn = document.createElement("button");
-createBtn.addClass = "clear";
-createBtn.textContent = "Clear local?";
-bodySelect.append(createBtn);
-
-createBtn.addEventListener('click', () => {
+var clearBtn = document.querySelector(".local-clear");
+clearBtn.addEventListener('click', () => {
     console.log(localStorage);
     localStorage.clear();
     console.log(localStorage);
+    window.location.href = "./index.html";
 })
 
 
