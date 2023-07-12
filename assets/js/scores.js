@@ -2,10 +2,6 @@ var initials = localStorage.getItem("initials");
 var scores = localStorage.getItem("score");
 var ulEl = document.querySelector("#history");
 
-
-console.log(initials, scores);
-console.log(localStorage.getItem("items"));
-
 function getStorage() { 
     var items = [];
 
@@ -37,20 +33,13 @@ function createScores(items) {
     }
 }
 
-
 items = getStorage();
 addStorage(items, initials, scores);
 createScores(items);
 
-console.log(items);
-console.log(localStorage);
-console.log(localStorage.getItem("items"));
-
 var clearBtn = document.querySelector(".local-clear");
 clearBtn.addEventListener('click', () => {
-    console.log(localStorage);
     localStorage.clear();
-    console.log(localStorage);
     window.location.href = "./index.html";
 })
 
