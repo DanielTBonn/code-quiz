@@ -16,7 +16,9 @@ function addStorage(items, initials, scores) {
         return;
     }
 
+    items.push([scores, initials]);
     items = bblSort(items);
+    items.reverse();
     localStorage.setItem("items", JSON.stringify(items));
     localStorage.setItem("initials", null);
     localStorage.setItem("score", null);
@@ -31,29 +33,16 @@ function createScores(items) {
     }
 }
 
-// Creating the bblSort function
 function bblSort(arr) {
-  
     for (var i = 0; i < arr.length; i++) {
-  
-        // Last i elements are already in place  
         for (var j = 0; j < (arr.length - i - 1); j++) {
-  
-            // Checking if the item at present iteration 
-            // is greater than the next iteration
-            if (Number(arr[j][0]) > Number(arr[j + 1][0])) {
-  
-                // If the condition is true
-                // then swap them
+            if (Number(arr[j][0]) >= Number(arr[j + 1][0])) {
                 var temp = arr[j]
                 arr[j] = arr[j + 1]
                 arr[j + 1] = temp
             }
         }
     }
-  
-    // Print the sorted array
-    console.log(arr);
     return arr;
 }
 
