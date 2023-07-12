@@ -15,8 +15,11 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Link
 
+Website Link: https://danieltbonn.github.io/code-quiz/scores.html
+
 ## Credits
 
-Borrowed code from the bootstrap website.
+Borrowed code for alerts straight and nav from the bootstrap website.
 
-Link: https://getbootstrap.com/docs/5.1/components/alerts/
+Link 1: https://getbootstrap.com/docs/5.1/components/alerts/
+Link 2: https://getbootstrap.com/docs/5.1/components/navbar/
