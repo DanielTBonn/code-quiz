@@ -1,3 +1,4 @@
+// keeps track of important document variables on the page and displays test score
 var resultSection = document.querySelector(".result");
 var initialsForm = document.querySelector("#initials-form");
 var scoreEl = document.createElement('h2');
@@ -6,6 +7,7 @@ scoreEl.setAttribute("class", " my-5 text-center")
 
 resultSection.append(scoreEl);
 
+// takes user input and stores it in local storage
 function handleFormSubmit(event) {
     var initialsSubmit = document.querySelector("#initials-submit").value;
     localStorage.setItem("initials", initialsSubmit);
@@ -24,6 +26,7 @@ function handleFormSubmit(event) {
     event.preventDefault();
 }
 
+// creates an alert message if user input is invalid
 // Taken straight from the bootstrap website with minor changes https://getbootstrap.com/docs/5.1/components/alerts/
 var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 
@@ -35,4 +38,5 @@ function alert(message, type) {
 }
 // End of copied code
 
+// applys the eventListener to the initailsForm variable
 initialsForm.addEventListener('submit', handleFormSubmit);

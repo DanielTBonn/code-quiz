@@ -1,11 +1,14 @@
+// important variables that will be used in functions, or keep track of time/score
 var timerEl = document.querySelector(".countdown");
 var btnClick = document.querySelector(".card");
 var timeLeft = 75;
 var currentScore = 0;
 
+// important variables that will help keep track if the quiz is over or not and the questions of the quiz
 var i = 0;
 var quiz = [];
 
+// object storing questions and answers/answer values
 const quizSheet = {
   question1: {
     questionText: "JavaScript is a(n): ",
@@ -54,10 +57,12 @@ const quizSheet = {
   }
 }
 
+// adds questions from quizSheet to a quiz array
 for (item in quizSheet) {
   quiz.push(quizSheet[item]);
 } 
 
+// event listener for checking if a question is correct, adding score or subtracting time, and changing windows when quiz is over
 btnClick.addEventListener("click", (event) => {
   const isButton = event.target.nodeName === "BUTTON";
   var index = Number(event.target.getAttribute("data-number"));
@@ -85,6 +90,7 @@ btnClick.addEventListener("click", (event) => {
   }
 });
 
+// displays a new question to the page and set of answers to the buttons
 function displayQuestion(question) {
   var changeQuestion = document.querySelector(".question-content");
   changeQuestion.textContent = question.questionText;
@@ -98,6 +104,7 @@ function displayQuestion(question) {
   }
 }
 
+// decrements timeLeft every second and dispalys it on the page, when time is out changes to the scores page
 function countdown() {
   var timeInterval = setInterval(function () {
     timerEl.textContent = timeLeft + ' seconds remanining';
@@ -112,19 +119,23 @@ function countdown() {
   }, 1000);
 }
 
+// function for keeping track of score, every question is 1 point
 function score(currentScore, correct) {
   if (correct) {
     return currentScore + 1;
   }
 }
 
+// function that converts the fraction of correct questions to a percentage
 function calculateScore(currentScore, quizLength) {
   return Math.floor((currentScore / quizLength) * 100);
 }
 
+// starts the quiz and displays the first set of questions
 countdown();
 displayQuestion(quiz[0]);
 
+// creates localStorage then adds results to localStorage
 function createLocalStorage() {
   if (!localStorage.getItem("score")) {
     populateStorage();
@@ -133,6 +144,7 @@ function createLocalStorage() {
   }
 }
 
+// function for adding results to localStorage
 function populateStorage() {
   localStorage.setItem("score", calculateScore(currentScore, quiz.length));
 }
